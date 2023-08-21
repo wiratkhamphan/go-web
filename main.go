@@ -1,15 +1,14 @@
+// main.go
 package main
 
 import (
-	"net/http"
-	_ "po/config"
 	"po/views"
+
+	"github.com/gin-gonic/gin"
 )
 
 func main() {
-	// config.BD()
-	// http.HandleFunc("/", views.Welcome) // Use Welcome instead of WD
-	// http.Handle("/views/style/", http.StripPrefix("/views/style/", http.FileServer(http.Dir("views/style"))))
-	views.WD()
-	http.ListenAndServe(":8000", nil)
+	router := gin.Default() // สร้าง Router ด้วย Gin
+	views.WD(router)        // เรียกใช้ฟังก์ชั่น WD และส่ง Router เข้าไป
+	router.Run(":8080")     // เริ่มเซิร์ฟเวอร์ที่พอร์ต 8080
 }

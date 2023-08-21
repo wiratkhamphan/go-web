@@ -1,16 +1,22 @@
+// views/views.go
 package views
 
 import (
-	"net/http"
+	branch "po/views/Branch"
+	home "po/views/Home"
 	"text/template"
+
+	"github.com/gin-gonic/gin"
 )
 
-func Welcome(w http.ResponseWriter, r *http.Request) {
+func Welcome(c *gin.Context) {
 	tmpl := template.Must(template.ParseFiles("views/login/login.html"))
-	tmpl.Execute(w, nil)
+	tmpl.Execute(c.Writer, nil)
 }
 
-func WD() {
-	http.HandleFunc("/", Welcome)
-	http.Handle("/views/", http.StripPrefix("/views/", http.FileServer(http.Dir("views/"))))
+func WD(router *gin.Engine) {
+	router.GET("/", Welcome)
+	router.GET("/Home", home.Home)
+	router.GET("/:branch", branch.Branch) // Use :branch as a parameter
+	router.Static("/views", "./views")
 }

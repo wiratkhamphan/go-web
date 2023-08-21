@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <form method="post">
+        <button id="button_1" value="val_1" name="but1">button 1</button>
+        <button id="button_2" value="val_2" name="but2">button 2</button>
+        <input id="access_token" type="hidden" name="access_token" value="your_access_token_here" />
+    </form>
+    <div id="result"></div>
+    
+   <!-- ... (เนื้อหาอื่น ๆ ของหน้าหลัก) ... -->
+
+<script>
+    function openPopup() {
+        var popup = window.open("show.html", "_blank", "width=300,height=200");
+    }
+    
+    function receiveBranch(branch) {
+        // Update the result div with the selected branch
+        document.getElementById("result").innerHTML = "คุณเลือก: " + branch;
+    }
+    
+    $(document).ready(function() {
+        $("button").click(function(e) {
+            e.preventDefault();
+            openPopup(); // Open the popup when a button is clicked
+        });
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/views/style/login.css"> <!-- แทรกไฟล์ CSS ที่คุณสร้าง -->
+    <title>Login Form</title>
+</head>
+<body>
+    <div class="container">
+        <div class="login-box">
+            <img src="/views/img/Remove BG.png" alt="IMG">
+            <h1 class="">ADVICE IT INFINITE PUBLIC COMPANY LIMITED</h1>
+            <h1>Branch</h1>
+            <div class="Input_foo">
+                <p><b>Input Username & Password</b></p>
+            </div>
+            <form>
+                <div class="input-container">
+                    <select name="branch" id="branch" required>
+                        <option value="branch1">Branch 1</option>
+                        <option value="branch2">Branch 2</option>
+                        <!-- เพิ่มตามต้องการ -->
+                    </select>
+                </div>
+                <div class="input-container">
+                    <input type="text" placeholder="" name="username" id="username" required autocomplete="off">
+                    <label for="username"><b>Username</b></label>
+                </div>
+                <div class="input-container">
+                    <input type="password" placeholder="" name="password" id="password" required autocomplete="off">
+                    <label for="password"><b>Password</b></label>
+                </div>
+                <button id="loginId">Login</button>
+            </form>
+            <div class="footer">
+                <p>&copy; 2023 Advice IT Infinite Public Company Limited</p>
+                <a href="#">Privacy Policy</a>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    document.getElementById("loginId").addEventListener("click", function(event) {
+        event.preventDefault();
+
+        var selectedBranch = document.getElementById("branch").value;
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+
+        // เช็ครหัสผ่านและแสดง popup ถ้าถูกต้อง
+        if (username === "000140" && password === "12345") {
+            alert("Login successful!"); // เปลี่ยนเป็นการแสดง popup ที่คุณต้องการ
+            // ทำสิ่งที่คุณต้องการหลังจากเข้าสู่ระบบสำเร็จ
+        } else {
+            alert("Invalid username or password"); // เปลี่ยนเป็นการแสดง popup ที่คุณต้องการ
+        }
+    });
+</script>
+</html>

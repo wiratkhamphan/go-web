@@ -26,10 +26,10 @@ body {
 
 .login-box {
     background-color: white;
-    border-radius: 10px;
+    border-radius: 20px;
     padding: 20px;
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
+    box-shadow: 0px 0px 0px ;
+    max-width: 450px;
     width: 100%;
 }
 
@@ -40,18 +40,21 @@ body {
 
 .login-box h1 {
     color: #0094d9;
-    font-size: 1.2rem;
+    font-family: Helvetica, sans-serif;
+    font-size: 15px;
     margin-top: 15px;
     text-align: center;
+    font-weight: bold;
 }
 
 .login-box h2 {
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: bold;
-    margin-top: 15px;
+    margin-top: 1px;
 }
 
-/* Form styling */
+/* ... (ส่วน CSS ก่อนหน้า) ... */
+
 .input-container {
     margin-top: 20px;
     position: relative;
@@ -62,7 +65,7 @@ body {
 
 .input-container input {
     width: 100%;
-    padding: 10px;
+    padding: 15px;
     border: none;
     border-bottom: 1px solid #ddd;
     outline: none;
@@ -72,20 +75,24 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    padding: 10px;
+    padding: 15px;
     color: #18b1d4;
     pointer-events: none;
     transition: 0.2s all;
+    transform-origin: top left;
+    transform: translate(10px, 10px) scale(1);
 }
 
-.input-container input:focus + label {
-    top: -20px;
-    left: 0;
+/* ... (ส่วน CSS ต่อไป) ... */
+
+.input-container input:focus + label,
+.input-container input:not(:placeholder-shown) + label {
+    transform: translate(10px, -10px) scale(0.5);
     color: #18b1d4;
     background-color: white;
-    padding: 0 5px;
+    padding: 0 1px;
     font-weight: bold;
-    font-size: 12px;
+    font-size: 15px;
 }
 
 .input-container input:focus::placeholder {
@@ -94,18 +101,27 @@ body {
 
 /* Button styling */
 #loginId {
-    background-color: #18b1d4;
     color: white;
     border: none;
-    padding: 10px 20px;
     cursor: pointer;
     font-weight: bold;
     margin-top: 20px;
     align-self: center;
+    text-transform: uppercase;
+    width: 100%;
+    height: 50px;
+    border-radius: 25px;
+    background: linear-gradient(to right, #6bd5ec, #18b1d4, #42d0fa);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 25px;
+    transition: background-color 0.4s;
+    outline: none;
 }
 
 #loginId:hover {
-    background-color: #0094d9;
+    background: #212529;
 }
 
 /* Footer styling */
@@ -119,8 +135,84 @@ body {
     color: #18b1d4;
     text-decoration: none;
 }
+
 .Input_foo {
-    margin-top: 50px;
+    margin-top: 20px;
     text-align: left;
     color: #d6d6d6;
 }
+.modal-body select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+}
+/* List styling */
+#branchList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+#branchList li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#branchList li:last-child {
+    border-bottom: none;
+}
+
+#branchList li:hover {
+    background-color: #f4f4f4;
+}
+/* ... (ส่วน CSS ก่อนหน้า) ... */
+
+/* Modal content styling */
+.modal-content {
+    overflow-y: auto; /* ใช้การเลื่อนแนวแกน Y เมื่อเนื้อหาเกินความสูงที่กำหนดไว้ */
+    max-height: 80vh; /* กำหนดความสูงสูงสุดของกล่อง Modal */
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Modal body styling */
+.modal-body {
+    overflow: auto; /* ใช้การเลื่อนแนวแกน Y เมื่อเนื้อหาเกินความสูงที่กำหนดไว้ */
+    max-height: 150px;
+}
+
+/* List styling */
+#branchList.scrollable-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    overflow-y: auto; /* ใช้การเลื่อนแนวแกน Y เมื่อเนื้อหาเกินความสูงที่กำหนดไว้ */
+    max-height: calc(100% - 40px); /* ความสูงสูงสุดของรายการที่ปรับให้ครบแถวแถวกับ Modal */
+}
+
+#branchList li {
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#branchList li:last-child {
+    border-bottom: none;
+}
+
+#branchList li:hover {
+    background-color: #f4f4f4;
+}
+
+/* ... (ส่วน CSS ต่อไป) ... */
